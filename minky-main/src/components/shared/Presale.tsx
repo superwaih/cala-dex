@@ -155,7 +155,9 @@ const Presale = () => {
         <Button
           disabled={loading}
           onClick={handleTransaction}
-          className="w-full flex gap-4 text-white py-6"
+          className="w-full flex gap-4 bg-brand-cyan text-black
+          regular
+          py-6"
         >
           {loading && <Shell color="#00F5FF" className="animate-spin" />}
           Buy CALA

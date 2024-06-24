@@ -47,32 +47,72 @@ const SliderInfo = ({ walletBalance }: { walletBalance: number }) => {
     return amountDollars
   }, [balance])
   return (
-    <div className='flex space-y-6 flex-col'>
-      <span className='text-white changa-one-regular text-center  text-[25px] font-bold'>Next Price Increase</span>
-      <div className='bg-[#00FF4F] rounded-[24px] p-3'>
-        <div>
-          DAYS
-        </div>
+    <div className="flex space-y-4 flex-col">
+      <span className="text-white changa-one-regular text-center  text-[25px] font-bold">
+        Next Price Increase
+      </span>
+      <div className="bg-[#00FF4F] text-lg grid grid-cols-4 rounded-[24px] p-3">
+        <div className="font-bold changa-one-regular">
+          <h1>DAYS</h1>
 
+          <p>00</p>
+        </div>
+        <div className="font-bold changa-one-regular">
+          <h1>HOURS</h1>
+
+          <p>00</p>
+        </div>
+        <div className="font-bold changa-one-regular">
+          <h1>MINUTES</h1>
+
+          <p>00</p>
+        </div>
+        <div className="font-bold changa-one-regular">
+          <h1>SECONDS</h1>
+
+          <p>00</p>
+        </div>
       </div>
-     
-      <Slider  disabled={true} value={[60]} max={100} step={1} />
-      <div className='flex md:flex-row flex-col gap-4 items-center justify-center'>
+      <div>
+        <p className="text-white text-center changa-one-regular font-bold text-lg">
+          USDT RAISED: <span>$3,758,595,595 / $4,122,458</span>
+        </p>
+      </div>
+
+      <Slider disabled={true} value={[60]} max={100} step={1} />
+      <div>
+        <p className="text-white text-center changa-one-regular font-bold text-lg">
+          1 $wai: <span>$0.042828</span>
+        </p>
+      </div>
+      <div className="flex md:flex-row flex-col gap-4 items-center justify-center">
         <Button
-          variant={'secondary'}
-          size={'sm'}
-          className='text-white font-bold flex gap-4 '>
+          variant={"secondary"}
+          size={"sm"}
+          className="text-white font-bold flex gap-4 "
+        >
           <SolanaLogo />
 
           <div>
             <h3>Sol</h3>
-            <p className='text-sm font-normal text-brand-gray'>Sol</p>
+            {/* <p className="text-sm font-normal text-brand-gray">Sol</p> */}
           </div>
         </Button>
+        <Button
+          variant={"secondary"}
+          size={"sm"}
+          className="text-white font-bold flex gap-4 "
+        >
+          <SolanaLogo />
 
+          <div>
+            <h3>USDT</h3>
+            {/* <p className="text-sm font-normal text-brand-gray">Sol</p> */}
+          </div>
+        </Button>
       </div>
     </div>
-  )
+  );
 }
 
 export default SliderInfo

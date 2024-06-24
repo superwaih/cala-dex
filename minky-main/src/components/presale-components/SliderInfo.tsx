@@ -89,7 +89,7 @@ const SliderInfo = ({ walletBalance }: { walletBalance: number }) => {
         <Button
           variant={"secondary"}
           size={"sm"}
-          className="text-white font-bold flex gap-4 "
+          className="reqular bg-brand-cyan uppercase text-black font-bold flex gap-4 "
         >
           <SolanaLogo />
 

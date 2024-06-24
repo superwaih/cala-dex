@@ -6,7 +6,7 @@ import Image from 'next/image'
 const RecieveTokens = ({amountTokens} : any) => {
   return (
     <div className='flex flex-col space-y-4'>
-        <h3 className='text-white'>Amount in $MGK you will receive :</h3>
+        <h3 className='text-white'>Amount</h3>
         <div className='w-full relative'>
           <Input value={amountTokens} disabled={true} type='text' placeholder='0' />
           <div className='absolute top-[20%] right-2'>

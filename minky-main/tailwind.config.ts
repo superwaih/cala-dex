@@ -25,7 +25,7 @@ const config = {
     extend: {
       deacon: ['Deacon', 'sans-serif'],
       colors: {
-        'brand-cyan': "#00F5FF",
+        'brand-cyan': "#00FF4F",
         'brand-black': '#190C36',
         'brand-gray': '#A1A0A5',
         'brand-purple': '#D204FF',

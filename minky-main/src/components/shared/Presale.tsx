@@ -16,18 +16,20 @@ import SliderInfo from '../presale-components/SliderInfo'
 import RecieveTokens from '../presale-components/receive-tokens'
 import ShowSuccessModal from '../presale-components/show-success';
 import ShowErrorModal from '../presale-components/show-error';
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 
 const Presale = () => {
   const { data, error, isLoading } = useSWR(`${BASE_URL}/price?ids=SOL`, fetcher)
   const { sendTokens, loading, isOpen, setIsOpen, transactionUrl, errorMessage, success, } = useSendTokens()
 
   const { connection } = useConnection();
-  const { publicKey, sendTransaction } = useWallet()
+  const { publicKey, sendTransaction, connect, select } = useWallet()
   //@ts-ignore
   const [amount, setAmount] = useState<number >(null)
   const { toast } = useToast()
   const [balance, setBalance] = useState(0);
   const TokenAddress =new web3.PublicKey(`GyVn9eqqZ7X2Xucir4ZhmvUQMN2J6AJJo3Wo7YuVFMTH`)
+
 
   const [txSig, setTxSig] = useState('');
  
@@ -45,7 +47,9 @@ const Presale = () => {
     };
     getInfo();
 }, [connection,  publicKey, txSig]);
-  
+  const handleWalletConnect = async () => {
+  connect()
+  }
   const handleTransaction = async () => {
     if (!connection || !publicKey) {
       toast({
@@ -109,42 +113,67 @@ const Presale = () => {
   }
 
   return (
-    <div className='p-8 m-9  md:py-12 px-[20px] md:px-[50px]   max-w-[600px] w-full allocateShadow
-     space-y-8 rounded-[50px] border-[#00FF4F] border'>
+    <div
+      className="p-8 m-9   px-[20px] md:px-[50px]   max-w-[500px] w-full allocateShadow
+     space-y-8 rounded-[50px] border-[#00FF4F] border"
+    >
       <SliderInfo walletBalance={balance} />
 
-      <div className='flex flex-col space-y-4'>
-        <h3 className='text-white'>Amount you pay :</h3>
-        <div className='w-full relative'>
-          <Input type='number' value={amount} onChange={handleAmountChange} placeholder='0' />
-
+      <div className='flex gap-4 items-center'>
+        <div className="flex flex-col space-y-4">
+          <h3 className="text-white">Amount you pay :</h3>
+          <div className="w-full relative">
+            <Input
+              type="number"
+              value={amount}
+              onChange={handleAmountChange}
+              placeholder="0"
+            />
+          </div>
         </div>
+        <RecieveTokens amountTokens={amountTokens} />
       </div>
-      <RecieveTokens amountTokens={amountTokens} />
-      <Button
-        disabled={loading}
-        onClick={handleTransaction}
-        className='w-full flex gap-4 text-white py-6'>
-        {loading && <Shell color='#00F5FF' className='animate-spin' />}
+      {!connection || !publicKey ? (
+        <WalletMultiButton
+          style={{
+            backgroundColor: "#00FF4F",
+            color: "black",
+            width: "100%",
+            borderRadius: "20px",
+            minWidth: "400px",
+            textAlign: "center",
+          }}
+          className=" !w-full  rounded-[20px] bg hover:bg-[#161b19] transition-all duration-200"
+        >
+          <span className="font-bold changa-one-regular w-full text-center">
+            Connect Wallet
+          </span>
+        </WalletMultiButton>
+      ) : (
+        <Button
+          disabled={loading}
+          onClick={handleTransaction}
+          className="w-full flex gap-4 text-white py-6"
+        >
+          {loading && <Shell color="#00F5FF" className="animate-spin" />}
+          Buy CALA
+        </Button>
+      )}
 
-        Buy MAGIK
-      </Button>
+      {isOpen && success && (
+        <ShowSuccessModal
+          url={transactionUrl}
+          amountTokens={amountTokens}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        />
+      )}
 
-      {
-        isOpen && success && (
-          <ShowSuccessModal url={transactionUrl} amountTokens={amountTokens} isOpen={isOpen} setIsOpen={setIsOpen} />
-
-        )
-      }
-
-      {
-        isOpen && errorMessage && (
-          <ShowErrorModal isOpen={isOpen} setIsOpen={setIsOpen} />
-
-        )
-      }
+      {isOpen && errorMessage && (
+        <ShowErrorModal isOpen={isOpen} setIsOpen={setIsOpen} />
+      )}
     </div>
-  )
+  );
 }
 
 export default Presale

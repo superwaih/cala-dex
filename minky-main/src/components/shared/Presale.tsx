@@ -119,7 +119,7 @@ const Presale = () => {
     >
       <SliderInfo walletBalance={balance} />
 
-      <div className='flex gap-4 items-center'>
+      <div className="flex gap-4 items-center">
         <div className="flex flex-col space-y-4">
           <h3 className="text-white">Amount you pay :</h3>
           <div className="w-full relative">
@@ -134,21 +134,23 @@ const Presale = () => {
         <RecieveTokens amountTokens={amountTokens} />
       </div>
       {!connection || !publicKey ? (
-        <WalletMultiButton
-          style={{
-            backgroundColor: "#00FF4F",
-            color: "black",
-            width: "100%",
-            borderRadius: "20px",
-            minWidth: "400px",
-            textAlign: "center",
-          }}
-          className=" !w-full  rounded-[20px] bg hover:bg-[#161b19] transition-all duration-200"
-        >
-          <span className="font-bold changa-one-regular w-full text-center">
-            Connect Wallet
-          </span>
-        </WalletMultiButton>
+        <div className='w-full min-w-[400px]'>
+          <WalletMultiButton
+            style={{
+              backgroundColor: "#00FF4F",
+              color: "black",
+              width: "100%",
+              borderRadius: "20px",
+              maxWidth: "400px",
+              textAlign: "center",
+            }}
+            className=" !w-full  rounded-[20px] bg hover:bg-[#161b19] transition-all duration-200"
+          >
+            <span className="font-bold changa-one-regular w-full text-center">
+              Connect Wallet
+            </span>
+          </WalletMultiButton>
+        </div>
       ) : (
         <Button
           disabled={loading}

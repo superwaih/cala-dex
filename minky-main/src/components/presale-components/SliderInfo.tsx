@@ -51,7 +51,7 @@ const SliderInfo = ({ walletBalance }: { walletBalance: number }) => {
       <span className="text-white changa-one-regular text-center  text-[25px] font-bold">
         Next Price Increase
       </span>
-      <div className="bg-[#00FF4F] text-lg grid grid-cols-4 rounded-[24px] p-3">
+      <div className="bg-[#00FF4F] text-md md:text-lg grid grid-cols-4 rounded-[24px] p-2 gap-4 md:p-3">
         <div className="font-bold changa-one-regular">
           <h1>DAYS</h1>
 
@@ -74,7 +74,7 @@ const SliderInfo = ({ walletBalance }: { walletBalance: number }) => {
         </div>
       </div>
       <div>
-        <p className="text-white text-center changa-one-regular font-bold text-lg">
+        <p className="text-white text-center changa-one-regular font-bold text-sm md:text-lg">
           USDT RAISED: <span>$3,758,595,595 / $4,122,458</span>
         </p>
       </div>

@@ -133,7 +133,8 @@ const Presale = () => {
         </div>
         <RecieveTokens amountTokens={amountTokens} />
       </div>
-      {!connection || !publicKey ? (
+    <div className='pb-4'>
+    {!connection || !publicKey ? (
         <div className='w-full min-w-[200px] sm:min-w-[400px]'>
           <WalletMultiButton
             style={{
@@ -163,6 +164,7 @@ const Presale = () => {
           Buy CALA
         </Button>
       )}
+    </div>
 
       {isOpen && success && (
         <ShowSuccessModal

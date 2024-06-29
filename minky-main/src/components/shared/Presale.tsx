@@ -114,8 +114,8 @@ const Presale = () => {
 
   return (
     <div
-      className="   px-[20px] md:px-[50px]   max-w-[500px] w-full allocateShadow
-     space-y-8 rounded-[50px] border-[#00FF4F] border"
+      className="bg-[#0D2011]/50   px-[20px] md:px-[50px]   max-w-[500px] w-full allocateShadow
+     space-y-6 rounded-[50px] border-[#00FF4F] border"
     >
       <SliderInfo walletBalance={balance} />
 

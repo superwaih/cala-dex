@@ -6,8 +6,8 @@ const SolanaLogo = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="30"
-      height="30"
+      width="22"
+      height="22"
       fill="none"
       viewBox="0 0 30 30"
     >

@@ -47,15 +47,15 @@ const SliderInfo = ({ walletBalance }: { walletBalance: number }) => {
     return amountDollars
   }, [balance])
   return (
-    <div className="flex space-y-4 flex-col">
+    <div className="flex space-y-3 flex-col">
       <span className="text-white changa-one-regular text-center  text-[25px] font-bold">
         Next Price Increase
       </span>
-      <div className="bg-[#00FF4F] text-md md:text-lg grid grid-cols-4 rounded-[24px] p-2 gap-4 md:p-3">
-        <div className="font-bold changa-one-regular">
+      <div className="bg-[#00FF4F] text-sm md:text-lg grid grid-cols-4 place-content-center px-4 rounded-[24px] p-2 gap-3 md:p-3">
+        <div className="font-bold flex flex-col justify-center changa-one-regular">
           <h1>DAYS</h1>
 
-          <p>00</p>
+          <p >00</p>
         </div>
         <div className="font-bold changa-one-regular">
           <h1>HOURS</h1>
@@ -85,7 +85,7 @@ const SliderInfo = ({ walletBalance }: { walletBalance: number }) => {
           1 $wai: <span>$0.042828</span>
         </p>
       </div>
-      <div className="flex md:flex-row flex-col gap-4 items-center justify-center">
+      <div className="flex flex-row  gap-4 items-center justify-center">
         <Button
           variant={"secondary"}
           size={"sm"}
@@ -101,7 +101,7 @@ const SliderInfo = ({ walletBalance }: { walletBalance: number }) => {
         <Button
           variant={"secondary"}
           size={"sm"}
-          className="text-white font-bold flex gap-4 "
+          className="text-white font-bold flex gap-2 "
         >
           <SolanaLogo />
 

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex  min-h-screen p-4 flex-col items-center  justify-between">
+    <main className="flex  min-h-screen p-2 flex-col items-center  justify-between">
       {/* <Navbar /> */}
     
         <Presale />
